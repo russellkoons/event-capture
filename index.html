@@ -46,9 +46,15 @@
 
   function logText(e) {
     console.log(this.classList.value);
+    e.stopPropagation();
+    // console.log(this);
   }
 
-  divs.forEach(div => div.addEventListener('click', logText));
+  // document.body.addEventListener('click', logText);
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false
+  }));
 </script>
 </body>
 </html>
